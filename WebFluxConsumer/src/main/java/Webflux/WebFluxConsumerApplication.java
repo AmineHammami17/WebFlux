@@ -12,11 +12,6 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 @EnableMongoRepositories
 
 public class WebFluxConsumerApplication implements CommandLineRunner {
-	private final ProductRepository productRepository;
-	@Autowired
-	public WebFluxConsumerApplication(ProductRepository productRepository){
-		this.productRepository = productRepository;
-	}
 
 	public static void main(String[] args) {
 
@@ -26,9 +21,7 @@ public class WebFluxConsumerApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		if(productRepository.findAll().isEmpty()){
-			productRepository.save(new Product("PC","BEST PC",3500));
-		}
 
 	}
 }
+
